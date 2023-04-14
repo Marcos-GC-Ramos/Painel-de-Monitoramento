@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Patrick+Hand&display=swap');
+
+:root{
+  --cor-primaria: white;
+  --cor-secundaria: #0850a3;
+
+  --font-primaria: 'Londrina Solid', cursive;
+  --font-secundaria: 'Patrick Hand', cursive;
+}
+
+body{
+  overflow: hidden !important;
+}
+
+.imagem{
+    display: inline-block;
+    position: relative;
+}
+
+/* Imagem 2 */
+.imagem .imagem__2__texto__1{
+    position: absolute;
+    top: 17%;
+    right: 37%;
+    font-size: 40px;
+    color: var(--cor-primaria);
+    font-size: 100px;
+    font-family: var(--font-primaria);
+}
+
+.imagem .imagem__2__texto__2{
+  position: absolute;
+  top: 37%;
+  right: 33%;
+  font-size: 40px;
+  color: var(--cor-primaria);
+  font-size: 100px;
+  font-family: var(--font-primaria);
+}
+
+.imagem .imagem__2__texto__3{
+  position: absolute;
+  top: 58%;
+  right: 26%;
+  font-size: 40px;
+  color: var(--cor-primaria);
+  font-size: 100px;
+  font-family: var(--font-primaria);
+}
+
+/* Imagem 3 */
+.imagem .imagem__3__texto__1{
+    position: absolute;
+    top: 17%;
+    right: 37%;
+    font-size: 40px;
+    color: var(--cor-primaria);
+    font-size: 100px;
+    font-family: var(--font-primaria);
+}
+
+.imagem .imagem__3__texto__2{
+  position: absolute;
+  top: 37%;
+  right: 33%;
+  font-size: 40px;
+  color: var(--cor-primaria);
+  font-size: 100px;
+  font-family: var(--font-primaria);
+}
+
+.imagem .imagem__3__texto__3{
+  position: absolute;
+  top: 58%;
+  right: 26%;
+  font-size: 40px;
+  color: var(--cor-primaria);
+  font-size: 100px;
+  font-family: var(--font-primaria);
+}
+
+/* Imagem 3 */
+.imagem .imagem__4__texto__1{
+  position: absolute;
+  top: 45%;
+  right: 30%;
+  font-size: 40px;
+  color: var(--cor-primaria);
+  font-size: 100px;
+  font-family: var(--font-primaria);
+}
+
+.imagem .imagem__4__texto__2{
+  position: absolute;
+  top: 81%;
+  right: 31%;
+  font-size: 40px !important;
+  color: var(--cor-secundaria);
+  font-size: 100px;
+  font-family: var(--font-secundaria);
+}
