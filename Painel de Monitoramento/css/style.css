@@ -20,9 +20,9 @@ body{
 /* Imagem 2 */
 .imagem .imagem__2__texto__1{
     position: absolute;
-    top: 17%;
-    right: 37%;
-    font-size: 40px;
+    top: 18%;
+    right: 36%;
+    font-size: 90px !important;
     color: var(--cor-primaria);
     font-size: 100px;
     font-family: var(--font-primaria);
@@ -30,9 +30,9 @@ body{
 
 .imagem .imagem__2__texto__2{
   position: absolute;
-  top: 37%;
+  top: 38%;
   right: 33%;
-  font-size: 40px;
+  font-size: 90px !important;
   color: var(--cor-primaria);
   font-size: 100px;
   font-family: var(--font-primaria);
@@ -40,9 +40,9 @@ body{
 
 .imagem .imagem__2__texto__3{
   position: absolute;
-  top: 58%;
-  right: 26%;
-  font-size: 40px;
+  top: 59%;
+  right: 24%;
+  font-size: 90px !important;
   color: var(--cor-primaria);
   font-size: 100px;
   font-family: var(--font-primaria);
@@ -51,9 +51,9 @@ body{
 /* Imagem 3 */
 .imagem .imagem__3__texto__1{
     position: absolute;
-    top: 17%;
-    right: 37%;
-    font-size: 40px;
+    top: 18%;
+    right: 36%;
+    font-size: 90px !important;
     color: var(--cor-primaria);
     font-size: 100px;
     font-family: var(--font-primaria);
@@ -61,9 +61,9 @@ body{
 
 .imagem .imagem__3__texto__2{
   position: absolute;
-  top: 37%;
+  top: 38%;
   right: 33%;
-  font-size: 40px;
+  font-size: 90px !important;
   color: var(--cor-primaria);
   font-size: 100px;
   font-family: var(--font-primaria);
@@ -71,9 +71,9 @@ body{
 
 .imagem .imagem__3__texto__3{
   position: absolute;
-  top: 58%;
-  right: 26%;
-  font-size: 40px;
+  top: 59%;
+  right: 24%;
+  font-size: 90px !important;
   color: var(--cor-primaria);
   font-size: 100px;
   font-family: var(--font-primaria);
@@ -93,7 +93,7 @@ body{
 .imagem .imagem__4__texto__2{
   position: absolute;
   top: 81%;
-  right: 31%;
+  right: 30%;
   font-size: 40px !important;
   color: var(--cor-secundaria);
   font-size: 100px;
