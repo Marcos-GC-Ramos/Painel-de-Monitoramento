@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@
 <body>
   <main>
     <section>
-      <div data-interval="2000" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div data-interval="3000" id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="imagem">
@@ -41,21 +41,21 @@
           <div class="carousel-item">
             <div class="imagem">
               <img src="imagens/4.png" />
-              <p class="imagem__4__texto__1 total_matriculas"></p>
-              <p class="imagem__4__texto__2 total_matriculas"></p>
+              <p class="imagem__4__texto__1 total_matriculas" id=""></p>
+              <p class="imagem__4__texto__2 total_matriculas" id=""></p>
             </div>
           </div>
         </div>
-        <!-- Setas Para passar o carrosel manualmente -->
-              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a> 
-           
+        <!-- Setas para passar o carrosel 
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a> 
+        -->
       </div>
     </section>
   </main>
@@ -76,34 +76,74 @@
   </script>
   <script> // Determinar o tempo de cada slid do carrosel
     $('.carousel').carousel({
-      interval: 2000
+      interval: 3000,
+      cycle: true
     });
+
+    // Função para atualizar a página
+    function refreshPage() {
+      location.reload();
+    }
+
+    // Tempo em milissegundos (3 horas)
+    const tempoDeAtualizacao = 10800000;
+    //const tempoDeAtualizacao = 10000;
+
+    // Agendar a atualização da página
+    setTimeout(refreshPage, tempoDeAtualizacao);
   </script>
   <script>
-    fetch('https://script.google.com/macros/s/AKfycbz4_4XVudzEgJRSjLUszIJcDnZJ9PMATsbQGLUC1tscTmiN34QIycGFcXnKdxgXAcOOUw/exec')
-      .then(resp => {
-        if (!resp.ok) {
-          throw new Error('Erro na solicitação');
-        }
-        return resp.json();
-      })
-      .then(data => {
-        console.log(data, 'teste');
-        document.getElementById('capital_ativas').innerHTML = data.content[1][0]
-        document.getElementById('capital_anexos').innerHTML = data.content[1][1]
-        document.getElementById('capital_total').innerHTML = data.content[1][2]
-        document.getElementById('interior_ativas').innerHTML = data.content[1][3]
-        document.getElementById('interior_anexos').innerHTML = data.content[1][4]
-        document.getElementById('interior_total').innerHTML = data.content[1][5]
+    // Função para fazer o parsing do CSV em um array de arrays
+    function parseCSV(csv) {
+      const lines = csv.split('\n');
+      const result = [];
+      for (const line of lines) {
+        result.push(line.split(','));
+      }
+      return result;
+    }
+    // Função para carregar e processar o arquivo CSV local
+    fetch('database/dados.csv') // Adicionar Aqui o endereço do arquivo CSV
+      .then(response => response.text())
+      .then(csvData => {
+        const data = parseCSV(csvData);
+        document.getElementById('capital_ativas').innerHTML = data[1][0];
+        document.getElementById('capital_anexos').innerHTML = data[1][1];
+        document.getElementById('capital_total').innerHTML = data[1][2];
+        document.getElementById('interior_ativas').innerHTML = data[1][3];
+        document.getElementById('interior_anexos').innerHTML = data[1][4];
+        document.getElementById('interior_total').innerHTML = data[1][5];
+
         let matricula = document.getElementsByClassName('total_matriculas');
         for (let i = 0; i < matricula.length; i++) {
-          matricula[i].innerHTML = (data.content[1][6]).toLocaleString();
+          matricula[i].innerHTML = (parseInt(data[1][6])).toLocaleString();
+
         }
-      })
-      .catch(error => {
-        console.error('Erro:', error);
       });
   </script>
+
+  <!-- <script>
+    fetch('https://raw.githubusercontent.com/danielseduc/Dados_Educacionais/main/dados_educacionais.csv')
+      .then(response => response.text())  // Convert response to text
+      .then(csvData => {
+        const rows = csvData.split('\n'); // Split CSV into rows
+        const dataRow = rows[1].split(','); // Assuming the data is in the second row
+
+        document.getElementById('capital_ativas').innerHTML = dataRow[0];
+        document.getElementById('capital_anexos').innerHTML = dataRow[1];
+        document.getElementById('capital_total').innerHTML = dataRow[2];
+        document.getElementById('interior_ativas').innerHTML = dataRow[3];
+        document.getElementById('interior_anexos').innerHTML = dataRow[4];
+        document.getElementById('interior_total').innerHTML = dataRow[5];
+        
+        const matricula = document.getElementsByClassName('total_matriculas');
+        for (let i = 0; i < matricula.length; i++) {
+          matricula[i].innerHTML = parseInt(dataRow[6]).toLocaleString();
+        }
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script> -->
+
 </body>
 
 </html>
